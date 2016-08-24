@@ -1,0 +1,26 @@
+# the persistence driver can be orm, mongodb, phpcr, or propel
+# the mapping keys should refer to the name of the PDF field,
+# and the mapping values should refer to the name of the Entity
+# property (i.e., you call $entity->getProperty() or ->getMyProp())
+ucd_pdftk:
+    templates_dir: /var/templates/pdf/
+    types:
+        user:
+            template: userTemplate.pdf
+            mappings:
+                username: ~
+                firstName: ~
+                latName: ~
+                email: ~
+            persistence:
+                driver: orm
+                model: Acme\ApplicationBundle\Entity\User
+        widget:
+            template: widgetTemplate.pdf
+            mappings:
+                category: ~
+                productName: ~
+                price: unitPrice
+            persistence:
+                driver: orm
+                model: Acme\ApplicationBundle\Entity\Widget
