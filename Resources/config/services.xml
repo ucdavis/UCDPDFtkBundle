@@ -4,6 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <services>
+        <service id="ucd_pdftk.create" class="UCDavis\UCDPdftkBundle\Command\CreatePdfCommand">
+            <tag name="console.command" />
+        </service>
+    </services>
+
     <!--
     <services>
         <service id="ucd_pdftk.example" class="UCDavis\UCDPdftkBundle\Example">

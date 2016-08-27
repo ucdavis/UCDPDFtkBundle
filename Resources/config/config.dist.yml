@@ -4,7 +4,7 @@
 # property (i.e., you call $entity->getProperty() or ->getMyProp())
 ucd_pdftk:
     templates_dir: /var/templates/pdf/
-    types:
+    pdfs:
         user:
             template: userTemplate.pdf
             mappings:

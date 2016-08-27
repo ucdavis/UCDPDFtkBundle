@@ -47,21 +47,19 @@ class CreatePdfCommandTest extends KernelTestCase
     }
 
     /**
-     * Asserts command provides expected output.
-     * TODO: write a better docblock.
+     * Tests passing all legitimate parameters.
      */
     public function testExecute()
     {
         $this->commandTester->execute([
-            'command'      => $this->command->getName(),
-            'entity'       => '',
-            'pdf_template' => '',
-            'pdf_fields'   => '',
+            'command'  => $this->command->getName(),
+            'pdf_name' => 'user',
+            'id'       => 1,
         ]);
 
         $output = $this->commandTester->getDisplay();
 
-        $this->assertContains('Expected Output', $output);
+        $this->assertContains('Success', $output);
     }
 
     /**
@@ -74,5 +72,20 @@ class CreatePdfCommandTest extends KernelTestCase
         $this->commandTester->execute([
             'command' => $this->command->getName(),
         ]);
+    }
+
+    /**
+     * Tests passing only the required parameters.
+     */
+    public function testRequiredExecute()
+    {
+        $this->commandTester->execute([
+            'command'  => $this->command->getName(),
+            'pdf_name' => 'user',
+        ]);
+
+        $output = $this->commandTester->getDisplay();
+
+        $this->assertContains('Success', $output);
     }
 }
